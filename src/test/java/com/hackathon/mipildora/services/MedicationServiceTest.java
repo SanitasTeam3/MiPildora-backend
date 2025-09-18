@@ -85,6 +85,7 @@ class MedicationServiceImpTest {
         );
 
         medicationResponse1 = new MedicationResponse(
+                1L,
                 "Paracetamol",
                 "500mg",
                 2,
@@ -98,6 +99,7 @@ class MedicationServiceImpTest {
         );
 
         medicationResponse2 = new MedicationResponse(
+                2L,
                 "Ibuprofeno",
                 "400mg",
                 3,
@@ -180,6 +182,7 @@ class MedicationServiceImpTest {
                 .build();
 
         MedicationResponse expectedResponse = new MedicationResponse(
+                3L,
                 "Aspirina",
                 "100mg",
                 1,
@@ -290,6 +293,7 @@ class MedicationServiceImpTest {
                 .build();
 
         MedicationResponse expectedResponse = new MedicationResponse(
+                null,
                 "Test Medicine",
                 null,
                 null,
