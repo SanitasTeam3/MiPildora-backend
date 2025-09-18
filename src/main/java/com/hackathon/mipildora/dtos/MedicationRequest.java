@@ -28,6 +28,10 @@ public record MedicationRequest(
 
         LocalDateTime finalDate,
 
+        Boolean taken,
+
+        Boolean alert,
+
         @Size(max = 500, message = "Description must not exceed 500 characters")
         String description
         ) {
