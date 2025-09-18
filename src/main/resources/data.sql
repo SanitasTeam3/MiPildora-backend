@@ -1,4 +1,4 @@
-INSERT INTO medication (id, name, dosage, frequency, time, init_date, taken, alert, description, create_date, final_date) VALUES
+INSERT INTO medications (id, name, dosage, frequency, time, init_date, taken, alert, description, create_date, final_date) VALUES
 (1, 'Paracetamol', '500mg', 3, '08:00:00', '2025-09-01', false, true, 'Medicamento para bajar la fiebre', '2025-09-10 20:00:00'),
 
 (2, 'Ibuprofeno', '200mg', 2, '09:30:00', '2025-09-05', true, true, 'Analgésico y antiinflamatorio', NULL),
