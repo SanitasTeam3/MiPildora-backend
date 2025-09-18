@@ -293,7 +293,7 @@ class MedicationServiceImpTest {
                 .build();
 
         MedicationResponse expectedResponse = new MedicationResponse(
-                null,
+                999L,
                 "Test Medicine",
                 null,
                 null,
