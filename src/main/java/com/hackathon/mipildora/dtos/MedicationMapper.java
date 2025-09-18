@@ -1,7 +1,9 @@
 package com.hackathon.mipildora.dtos;
 
 import com.hackathon.mipildora.models.Medication;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MedicationMapper {
     public static Medication dtoToEntity(MedicationRequest request) {
         if (request == null) return null;
