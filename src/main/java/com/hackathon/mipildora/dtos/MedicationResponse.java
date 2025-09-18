@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public record MedicationResponse(
+        Long id,
         String name,
         String dosage,
         Integer frequency,

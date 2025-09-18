@@ -25,6 +25,7 @@ public class MedicationMapper {
         if (medication == null) return null;
 
         return new MedicationResponse(
+                medication.getId(),
                 medication.getName(),
                 medication.getDosage(),
                 medication.getFrequency(),
