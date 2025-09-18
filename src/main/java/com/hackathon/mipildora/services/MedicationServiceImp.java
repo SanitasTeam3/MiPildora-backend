@@ -31,5 +31,14 @@ public class MedicationServiceImp implements MedicationService {
         Medication saved = medicationRepository.save(medication);
         return MedicationMapper.entityToDto(saved);
     }
+
+    @Override
+    public MedicationResponse updateMedication(Long id, MedicationRequest medicationRequest){
+        Medication isExisting = medicationRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("No" + id));
+        isExisting.setTaken(medicationRequest.taken());
+        Medication savedMedication = medicationRepository.save(isExisting);
+        return MedicationMapper.entityToDto(savedMedication);
+    }
 }
 
