@@ -26,9 +26,9 @@ public record MedicationRequest(
         @NotNull(message = "Init date is required")
         LocalDate initDate,
 
-        @Size(max = 500, message = "Description must not exceed 500 characters")
-        String description,
+        LocalDateTime finalDate,
 
-        LocalDateTime finalDate
+        @Size(max = 500, message = "Description must not exceed 500 characters")
+        String description
         ) {
 }
