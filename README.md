@@ -14,6 +14,7 @@ src
     ├── dtos                      # DTOs for category operations
     │   ├── MedicationMapper      
     │   ├── MedicationRequest    
+    │   ├── MedicationTakenRequest 
     │   └── MedicationResponse   
     ├── models                    
     │   └── Medication            # JPA Entity
@@ -61,5 +62,6 @@ For example, in IntelliJ IDEA, right-click the main class and choose "Run 'Mipil
 
 - `GET /medications` — Get all medications
 - `POST /medications` — Add new medication
-- `PUT /medications/{id}/taken` — Update medication
+- `PUT /medications` — Update medication
+- `PUT /medications/{id}/taken` — Set medication as taken by id
 - `DELETE /medications/{id}` — Delete medication
