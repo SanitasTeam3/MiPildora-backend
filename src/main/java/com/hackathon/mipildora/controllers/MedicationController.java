@@ -2,7 +2,9 @@ package com.hackathon.mipildora.controllers;
 
 import com.hackathon.mipildora.dtos.MedicationRequest;
 import com.hackathon.mipildora.dtos.MedicationResponse;
+import com.hackathon.mipildora.dtos.MedicationTakenRequest;
 import com.hackathon.mipildora.services.MedicationService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,5 +29,10 @@ public class MedicationController {
     public ResponseEntity<List<MedicationResponse>> getAllMedications() {
         List<MedicationResponse> medications = medicationService.getAllMedication();
         return ResponseEntity.ok(medications);
+    }
+
+    @PutMapping("/{id}/taken")
+    public ResponseEntity<MedicationResponse> updateMedication(@PathVariable Long id, MedicationTakenRequest medicationTakenRequest) {
+        return new ResponseEntity<>(medicationService.updateMedication(id, medicationTakenRequest), HttpStatus.OK);
     }
 }

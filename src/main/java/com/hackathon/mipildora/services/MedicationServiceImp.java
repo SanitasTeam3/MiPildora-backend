@@ -3,6 +3,7 @@ package com.hackathon.mipildora.services;
 import com.hackathon.mipildora.dtos.MedicationMapper;
 import com.hackathon.mipildora.dtos.MedicationRequest;
 import com.hackathon.mipildora.dtos.MedicationResponse;
+import com.hackathon.mipildora.dtos.MedicationTakenRequest;
 import com.hackathon.mipildora.models.Medication;
 import com.hackathon.mipildora.repositories.MedicationRepository;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +31,18 @@ public class MedicationServiceImp implements MedicationService {
         Medication medication = MedicationMapper.dtoToEntity(medicationRequest);
         Medication saved = medicationRepository.save(medication);
         return MedicationMapper.entityToDto(saved);
+    }
+
+    @Override
+    public MedicationResponse updateMedication(Long id, MedicationTakenRequest medicationRequest) {
+
+        Medication existingMedication = medicationRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("with id " + id));
+
+        existingMedication.setTaken(true);
+
+        Medication updatedMedication = medicationRepository.save(existingMedication);
+        return medicationMapper.entityToDto(updatedMedication);
     }
 }
 
