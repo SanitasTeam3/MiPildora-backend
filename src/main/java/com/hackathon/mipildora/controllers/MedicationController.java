@@ -35,4 +35,10 @@ public class MedicationController {
         MedicationResponse updatedMedication = medicationService.updateMedication(id, medicationRequest);
         return new ResponseEntity<>(updatedMedication, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteMedicationById(@PathVariable Long id) {
+        medicationService.deleteMedicationById(id);
+        return new ResponseEntity<>("Medication with id: " + id + " has been deleted", HttpStatus.OK);
+    }
 }

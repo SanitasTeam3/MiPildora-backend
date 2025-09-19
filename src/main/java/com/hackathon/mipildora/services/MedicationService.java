@@ -9,4 +9,5 @@ public interface MedicationService {
     List<MedicationResponse> getAllMedication();
     MedicationResponse createMedication(MedicationRequest medicationRequest);
     MedicationResponse updateMedication(Long id, MedicationRequest medicationRequest);
+    void deleteMedicationById(Long id);
 }

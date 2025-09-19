@@ -35,10 +35,17 @@ public class MedicationServiceImp implements MedicationService {
     @Override
     public MedicationResponse updateMedication(Long id, MedicationRequest medicationRequest){
         Medication isExisting = medicationRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("No" + id));
+                .orElseThrow(() -> new RuntimeException("Medication not found with id: " + id));
         isExisting.setTaken(medicationRequest.taken());
         Medication savedMedication = medicationRepository.save(isExisting);
         return MedicationMapper.entityToDto(savedMedication);
+    }
+
+    @Override
+    public void deleteMedicationById(Long id){
+        Medication isExisting = medicationRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Medication not found with id: " + id));
+        medicationRepository.deleteById(id);
     }
 }
 
