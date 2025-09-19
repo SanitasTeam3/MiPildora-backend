@@ -32,7 +32,19 @@ public class MedicationController {
     }
 
     @PutMapping("/{id}/taken")
-    public ResponseEntity<MedicationResponse> updateMedication(@PathVariable Long id, MedicationTakenRequest medicationTakenRequest) {
+    public ResponseEntity<MedicationResponse> updateTakenMedication(@PathVariable Long id, MedicationTakenRequest medicationTakenRequest) {
         return new ResponseEntity<>(medicationService.updateMedication(id, medicationTakenRequest), HttpStatus.OK);
+    }
+  
+    @PutMapping
+    public ResponseEntity<MedicationResponse> updateMedication(@PathVariable Long id, @Valid @RequestBody MedicationRequest medicationRequest) {
+        MedicationResponse updatedMedication = medicationService.updateMedication(id, medicationRequest);
+        return new ResponseEntity<>(updatedMedication, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteMedicationById(@PathVariable Long id) {
+        medicationService.deleteMedicationById(id);
+        return new ResponseEntity<>("Medication with id: " + id + " has been deleted", HttpStatus.OK);
     }
 }
