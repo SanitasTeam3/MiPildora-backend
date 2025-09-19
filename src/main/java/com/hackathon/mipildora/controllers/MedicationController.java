@@ -33,7 +33,7 @@ public class MedicationController {
 
     @PutMapping("/{id}/taken")
     public ResponseEntity<MedicationResponse> updateTakenMedication(@PathVariable Long id, MedicationTakenRequest medicationTakenRequest) {
-        return new ResponseEntity<>(medicationService.updateMedication(id, medicationTakenRequest), HttpStatus.OK);
+        return new ResponseEntity<>(medicationService.updateTakenMedication(id, medicationTakenRequest), HttpStatus.OK);
     }
   
     @PutMapping
